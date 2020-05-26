@@ -15,12 +15,12 @@ type repo struct {
 }
 
 func (r repo) CreateUser(ctx context.Context, user User) error {
-	log.With(r.Logger,"method","createUser")
+	log.With(r.Logger, "method", "createUser")
 	return nil
 }
 
 func (r repo) GetUser(ctx context.Context, email string) User {
-	log.With(r.Logger,"method","GetUser")
+	log.With(r.Logger, "method", "GetUser")
 	return User{
 		Email: email,
 	}

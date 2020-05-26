@@ -19,7 +19,6 @@ func NewHttpServer(ctx context.Context, endpoints *Endpoints) http.Handler {
 			encodeUserResponse,
 		))
 
-
 	router.Methods("GET").Path("/user/{email}").Handler(
 		goKitHttp.NewServer(
 			endpoints.GetUser,

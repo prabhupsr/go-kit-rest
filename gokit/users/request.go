@@ -1,21 +1,20 @@
 package users
 
-type CreateUserRequest struct{
-		Email string `json:"email"`
-		Name string `json:"name"`
-}
-
-type CreateUserResponse struct{
+type CreateUserRequest struct {
 	Email string `json:"email"`
-	Name string `json:"name"`
+	Name  string `json:"name"`
 }
 
-type CreateGetUserResponse struct{
+type CreateUserResponse struct {
 	Email string `json:"email"`
-	Name string `json:"name"`
+	Name  string `json:"name"`
 }
 
-type CreateGetUserRequest struct{
+type CreateGetUserResponse struct {
+	Email string `json:"email"`
+	Name  string `json:"name"`
+}
+
+type CreateGetUserRequest struct {
 	Email string `json:"email"`
 }
-

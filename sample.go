@@ -1,7 +1,6 @@
 package users
 
 import (
-	. "awesomeProject/student"
 	json "encoding/json"
 	"errors"
 	"fmt"
@@ -69,7 +68,7 @@ type Employee struct {
 }
 
 func handle(writer http.ResponseWriter, request *http.Request) {
-	handleRequest(request.Body,request.Header.Get("myHeader"))
+	handleRequest(request.Body, request.Header.Get("myHeader"))
 }
 
 func handleRequest(body io.ReadCloser, myHeader string) (string, error) {

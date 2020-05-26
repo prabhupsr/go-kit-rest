@@ -13,33 +13,33 @@ type Service interface {
 }
 
 type service struct {
-	Repo Repository
+	Repo   Repository
 	Logger log.Logger
 }
 
 func (s service) CreateUser(ctx context.Context, name string, email string) (User, error) {
-	s.Logger.Log(name,email)
+	s.Logger.Log(name, email)
 	user := User{
 		Name:  name,
 		Email: email,
 	}
 	fmt.Println(user.Name)
-	return user,nil
+	return user, nil
 }
 
 func (s service) GetUser(ctx context.Context, email string) User {
-	logger:= log.With(s.Logger,"METHOD","GetUser")
+	logger := log.With(s.Logger, "METHOD", "GetUser")
 	s.Logger.Log(email)
-	level.Error(logger).Log("err",nil)
+	level.Error(logger).Log("err", nil)
 	return User{
 		Email: email,
 	}
 
 }
 
-func NewService(R Repository,logger log.Logger) Service  {
+func NewService(R Repository, logger log.Logger) Service {
 	return &service{
-		Repo: R,
+		Repo:   R,
 		Logger: logger,
 	}
 
