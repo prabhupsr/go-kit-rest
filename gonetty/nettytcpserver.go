@@ -14,6 +14,8 @@ import (
 
 func main() {
 
+	fmt.Println("abc-->>>", []byte("abc"))
+
 	// child pipeline initializer
 	var childPipelineInitializer = func(channel netty.Channel) {
 
@@ -60,11 +62,18 @@ func main() {
 	bootstrap.Transport(tcp.New())
 	bootstrap.Listen("127.0.0.1:9527", tcp.WithOptions(tcpOptions))
 
-	c, err := bootstrap.Connect("tcp://localhost:1221", "go-netty")
+	c, err := bootstrap.Connect("tcp://localhost:9527", "go-netty")
 	if nil != err {
-		//t.Fatal(err)
+		panic(err)
 	}
-	c.Write([]byte("msgghgchghgcghvjhvjfhjgfh gfsgffgh "))
+
+	i, err := c.Write([]byte("msgghgchghgcghvjhvjfhjgfh gfsgffgh "))
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(i)
 
 	netty.NewBootstrap().
 		// configure the child pipeline initializer

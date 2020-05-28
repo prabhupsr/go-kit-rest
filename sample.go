@@ -1,6 +1,7 @@
 package users
 
 import (
+	"awesomeProject/student"
 	json "encoding/json"
 	"errors"
 	"fmt"
@@ -31,8 +32,8 @@ func pointers() {
 	fmt.Println(*aPointer)
 }
 
-func structFn() Student {
-	return CreateStudent(1, "prabhu")
+func structFn() student.Student {
+	return student.CreateStudent(1, "prabhu")
 }
 
 func main() {
